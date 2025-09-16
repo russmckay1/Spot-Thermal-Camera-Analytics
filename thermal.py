@@ -51,14 +51,14 @@ def launch_gui(image_path, result_text):
     root = tk.Tk()
     root.title("Spot Thermal Camera Analytics")
 
-    # Title
+    # Title (48 after 20% reduction)
     title_label = ttk.Label(root, text="Spot Thermal Camera Analytics",
-                            font=("Helvetica", 20, "bold"))
+                            font=("Helvetica", 48, "bold"))
     title_label.pack(pady=20)
 
-    # Result text
+    # Result text (2x large font)
     result_label = ttk.Label(root, text=result_text,
-                             font=("Helvetica", 14))
+                             font=("Helvetica", 28))
     result_label.pack(pady=10)
 
     # Display image (resized to 400x400)
@@ -68,11 +68,11 @@ def launch_gui(image_path, result_text):
         tk_img = ImageTk.PhotoImage(img)
 
         img_label = ttk.Label(root, image=tk_img)
-        img_label.image = tk_img  # Keep reference to avoid GC
+        img_label.image = tk_img  # Keep reference
         img_label.pack(pady=10)
     except Exception as e:
         error_label = ttk.Label(root, text=f"Error loading image: {e}",
-                                font=("Helvetica", 12), foreground="red")
+                                font=("Helvetica", 18), foreground="red")
         error_label.pack(pady=10)
 
     # Exit button
